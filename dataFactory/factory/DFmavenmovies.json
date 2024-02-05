@@ -1,0 +1,9 @@
+{
+	"name": "DFmavenmovies",
+	"location": "westus3",
+	"identity": {
+		"type": "SystemAssigned",
+		"principalId": "9c76eec4-0963-4a9f-98b8-e901c0767821",
+		"tenantId": "d0138769-d30d-4802-a03d-563817cbdc24"
+	}
+}
