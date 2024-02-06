@@ -73,7 +73,7 @@
 							"value": "@{concat(dataset().schemaname, '/',dataset().tablename)}",
 							"type": "Expression"
 						},
-						"container": "bronze3"
+						"container": "bronze"
 					},
 					"compressionCodec": "snappy"
 				},
