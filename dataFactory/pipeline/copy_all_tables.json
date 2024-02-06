@@ -1,5 +1,5 @@
 {
-	"name": "pipeline1",
+	"name": "copy_all_tables",
 	"properties": {
 		"activities": [
 			{
@@ -27,7 +27,7 @@
 				}
 			},
 			{
-				"name": "Copy all tables",
+				"name": "ForEach Schema Table",
 				"type": "ForEach",
 				"dependsOn": [
 					{
@@ -45,7 +45,7 @@
 					},
 					"activities": [
 						{
-							"name": "Copy each table",
+							"name": "Copy Each Table",
 							"type": "Copy",
 							"dependsOn": [],
 							"policy": {
@@ -60,7 +60,7 @@
 								"source": {
 									"type": "MySqlSource",
 									"query": {
-										"value": "@{concat('SELECT * FROM', item().SchemaName, '.', item().TableName)}",
+										"value": "@{concat('SELECT * FROM ', item().SchemaName, '.', item().TableName)}",
 										"type": "Expression"
 									}
 								},
@@ -85,7 +85,7 @@
 							},
 							"inputs": [
 								{
-									"referenceName": "MySqlcopy",
+									"referenceName": "MySqlTable1",
 									"type": "DatasetReference"
 								}
 							],
