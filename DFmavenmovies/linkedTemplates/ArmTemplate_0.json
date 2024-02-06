@@ -73,7 +73,7 @@
 							"value": "@{concat(dataset().schemaname, '/',dataset().tablename)}",
 							"type": "Expression"
 						},
-						"container": "bronze"
+						"container": "bronze3"
 					},
 					"compressionCodec": "snappy"
 				},
@@ -159,7 +159,7 @@
 						"typeProperties": {
 							"source": {
 								"type": "MySqlSource",
-								"query": "SELECT \n    TABLE_SCHEMA AS SchemaName, \n    TABLE_NAME AS TableName \nFROM \n    INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA LIKE \"mavenmovies\";"
+								"query": "SELECT \n    TABLE_SCHEMA AS SchemaName, \n    TABLE_NAME AS TableName \nFROM \n    INFORMATION_SCHEMA.TABLES\nWHERE TABLE_SCHEMA LIKE \"mavenmovies\" \n\tAND TABLE_NAME NOT LIKE \"actor_info\"\n    AND TABLE_NAME NOT LIKE \"customer_list\"\n    AND TABLE_NAME NOT LIKE \"film_list\"\n    AND TABLE_NAME NOT LIKE \"nicer_but_clower_film_list\"\n    AND TABLE_NAME NOT LIKE \"sales_by_film_category\"\n    AND TABLE_NAME NOT LIKE \"actor_info\"\n    AND TABLE_NAME NOT LIKE \"sales_by_store\"\n    AND TABLE_NAME NOT LIKE \"staff_list\";"
 							},
 							"dataset": {
 								"referenceName": "MySqlTable1",
